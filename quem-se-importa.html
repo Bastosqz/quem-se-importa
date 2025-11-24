@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUEM SE IMPORTA? - Redes Sociais e Saúde Mental</title>
+    <meta name="description" content="Campanha de conscientização sobre os impactos das redes sociais na saúde mental e as políticas públicas de saúde no Brasil">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #ffffff;
+        }
+
+        :root {
+            --color-primary: #4A90E2;
+            --color-primary-dark: #357ABD;
+            --color-accent: #10B981;
+            --color-text-dark: #1F2937;
+            --color-text-gray: #6B7280;
+            --color-bg-light: #F9FAFB;
+            --color-white: #FFFFFF;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 100;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        nav button {
+            padding: 12px 16px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--color-text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav button:hover {
+            color: var(--color-primary);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 35px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 36px;
+            color: var(--color-text-dark);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        section h3 {
+            font-size: 20px;
+            color: var(--color-text-dark);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        section p {
+            font-size: 15px;
+            color: var(--color-text-gray);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            padding: 30px;
+            background: var(--color-bg-light);
+            border-left: 5px solid var(--color-accent);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+
+        .stat-text {
+            font-size: 14px;
+            color: var(--color-text-dark);
+            line-height: 1.7;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            padding: 30px;
+            background: #F0F4F8;
+            border-left: 5px solid var(--color-primary);
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .quote-text {
+            font-size: 16px;
+            font-style: italic;
+            color: var(--color-text-dark);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .quote-author {
+            font-size: 13px;
+            color: var(--color-text-gray);
+            text-align: right;
+            font-weight: 500;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .card {
+            padding: 30px;
+            background: var(--color-bg-light);
+            border-left: 5px solid var(--color-accent);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            margin-left: 20px;
+        }
+
+        .card li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--color-text-gray);
+        }
+
+        /* Steps */
+        .steps {
+            display: grid;
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 25px;
+            padding: 25px;
+            background: var(--color-bg-light);
+            border-radius: 8px;
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .step-content p {
+            margin: 0;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            padding: 30px;
+            background: #F0F4F8;
+            border: 2px solid var(--color-primary);
+            border-radius: 8px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .highlight-box p {
+            font-weight: 600;
+            color: var(--color-text-dark);
+            margin: 0;
+        }
+
+        .highlight-box .subtitle {
+            font-size: 13px;
+            color: var(--color-text-gray);
+            margin-top: 10px;
+        }
+
+        /* Timeline */
+        .timeline {
+            display: grid;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 30px;
+            padding: 25px;
+            background: var(--color-bg-light);
+            border-radius: 8px;
+            border-left: 5px solid var(--color-primary);
+        }
+
+        .timeline-year {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-primary);
+            min-width: 80px;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 8px;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .contact-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contact-number {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .contact-label {
+            font-size: 13px;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-primary);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        footer h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Utility */
+        .bg-light {
+            background: var(--color-bg-light);
+        }
+
+        .bg-blue {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: white;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .hero h2 { font-size: 22px; }
+            section h2 { font-size: 28px; }
+            nav ul { gap: 0; }
+            nav button { padding: 10px 12px; font-size: 12px; }
+            .step { flex-direction: column; }
+            .step-number { width: 50px; height: 50px; }
+            .step-content { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><button onclick="scrollTo('home')">QUEM SE IMPORTA?</button></li>
+            <li><button onclick="scrollTo('problema')">O Problema</button></li>
+            <li><button onclick="scrollTo('sus')">SUS</button></li>
+            <li><button onclick="scrollTo('impactos')">Impactos</button></li>
+            <li><button onclick="scrollTo('politicas')">Políticas</button></li>
+            <li><button onclick="scrollTo('campanha')">Campanha</button></li>
+            <li><button onclick="scrollTo('recursos')">Recursos</button></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero" id="home">
+        <div>
+            <p class="hero-subtitle">Campanha de Conscientização em Saúde Mental</p>
+            <h1>QUEM SE IMPORTA?</h1>
+            <h2>Redes Sociais e Saúde Mental</h2>
+            <p>Uma campanha de conscientização sobre políticas públicas de saúde e os impactos invisíveis do mundo digital</p>
+            <button class="btn btn-primary" onclick="scrollTo('impactos')">Descubra os impactos invisíveis</button>
+        </div>
+    </div>
+
+    <!-- O Problema é Real -->
+    <section id="problema" class="bg-light">
+        <div class="container">
+            <h2>O Problema é Real</h2>
+            <p>Os números mostram o impacto das redes sociais na saúde mental dos jovens brasileiros</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">73%</div>
+                    <div class="stat-text">dos jovens brasileiros relatam ansiedade relacionada às redes sociais</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4h30min</div>
+                    <div class="stat-text">tempo médio diário que os brasileiros passam nas redes sociais</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">+60%</div>
+                    <div class="stat-text">aumento em casos de depressão entre adolescentes desde 2010</div>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <p class="quote-text">"A saúde mental não é a ausência de problemas, mas a capacidade de lidar com eles."</p>
+                <p class="quote-author">— Organização Mundial da Saúde (OMS)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Saúde Mental no SUS -->
+    <section id="sus">
+        <div class="container">
+            <h2>Saúde Mental no SUS</h2>
+            <p>Onde buscamos ajuda? Conheça a estrutura de atendimento em saúde mental no Sistema Único de Saúde</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Atenção Básica - UBS</h3>
+                        <p>Unidades Básicas de Saúde e equipes de Saúde da Família realizam a primeira escuta, orientação inicial e encaminhamento quando necessário.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>CAPS - Centros de Atenção Psicossocial</h3>
+                        <p>Atendimento especializado e intensivo para pessoas com transtornos mentais, oferecendo acompanhamento multiprofissional.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>RAPS - Rede de Atenção Psicossocial</h3>
+                        <p>Articulação de diversos serviços para garantir atendimento integral, desde a prevenção até a reabilitação.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p>✓ Todos os serviços são gratuitos e universais. Você tem direito!</p>
+                <p class="subtitle">Você não precisa de encaminhamento médico para procurar a UBS mais próxima e começar seu atendimento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Os Impactos das Redes Sociais -->
+    <section id="impactos" class="bg-light">
+        <div class="container">
+            <h2>Os Impactos das Redes Sociais</h2>
+            <p>Entenda como o uso excessivo das redes sociais afeta nossa saúde mental</p>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Comparação Social</h3>
+                    <p><strong>Efeito Instagram: a vida perfeita que não existe</strong></p>
+                    <p><strong>Consequências:</strong></p>
+                    <ul>
+                        <li>Baixa autoestima e insatisfação com a própria vida</li>
+                        <li>Ansiedade por não atingir padrões irreais</li>
+                        <li>Distorção da autoimagem e percepção de valor pessoal</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>FOMO - Fear of Missing Out</h3>
+                    <p><strong>O medo de estar de fora</strong></p>
+                    <p><strong>Consequências:</strong></p>
+                    <ul>
+                        <li>Estresse constante por 'estar por dentro'</li>
+                        <li>Dependência digital e checagem compulsiva</li>
+                        <li>Dificuldade em estar presente no momento</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Cyberbullying</h3>
+                    <p><strong>Violência invisível, dor real</strong></p>
+                    <p><strong>Consequências:</strong></p>
+                    <ul>
+                        <li>Depressão e pensamentos suicidas</li>
+                        <li>Isolamento social e medo</li>
+                        <li>Trauma psicológico de longo prazo</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Privação de Sono</h3>
+                    <p><strong>Só mais 5 minutos... que viram horas</strong></p>
+                    <p><strong>Consequências:</strong></p>
+                    <ul>
+                        <li>Fadiga crônica e irritabilidade</li>
+                        <li>Problemas cognitivos e de memória</li>
+                        <li>Aumento do risco de doenças mentais</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Políticas Públicas -->
+    <section id="politicas">
+        <div class="container">
+            <h2>Políticas Públicas e Conscientização</h2>
+            <p>A trajetória das políticas de saúde mental no Brasil</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1988</div>
+                    <div class="timeline-content">
+                        <h3>Constituição Federal</h3>
+                        <p>Saúde reconhecida como direito fundamental de todos os brasileiros</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1990</div>
+                    <div class="timeline-content">
+                        <h3>Criação do SUS</h3>
+                        <p>Sistema Único de Saúde garante acesso universal e gratuito à saúde</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2001</div>
+                    <div class="timeline-content">
+                        <h3>Lei Antimanicomial</h3>
+                        <p>Reforma psiquiátrica humaniza o tratamento de saúde mental no Brasil</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2014</div>
+                    <div class="timeline-content">
+                        <h3>Setembro Amarelo</h3>
+                        <p>Campanha nacional de prevenção ao suicídio e valorização da vida</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h3>Janeiro Branco</h3>
+                        <p>Conscientização sobre saúde mental e bem-estar emocional</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 50px;">Desafios das Políticas Públicas em Saúde Mental</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Subfinanciamento</h3>
+                    <p>Falta de investimento adequado no SUS para saúde mental</p>
+                </div>
+                <div class="card">
+                    <h3>Profissionais</h3>
+                    <p>Falta de profissionais especializados em regiões remotas</p>
+                </div>
+                <div class="card">
+                    <h3>Desigualdade</h3>
+                    <p>Desigualdade regional no acesso aos serviços</p>
+                </div>
+                <div class="card">
+                    <h3>Estigma</h3>
+                    <p>Preconceito social sobre transtornos mentais</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nossa Campanha -->
+    <section id="campanha" class="bg-light">
+        <div class="container">
+            <h2>#DigitalComEquilíbrio</h2>
+            <p style="font-size: 18px; font-weight: 600; margin-bottom: 30px;">Use as redes. Não deixe elas usarem você.</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Pausas Conscientes</h3>
+                        <p>Configure lembretes de descanso no seu celular. Pratique o 'detox digital' uma vez por semana, desconectando-se completamente das redes sociais.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Curadoria do Feed</h3>
+                        <p>Siga conteúdos que te fazem bem. Silencie perfis que geram comparações tóxicas. Você tem controle sobre o que consome.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Converse</h3>
+                        <p>Fale sobre seus sentimentos com pessoas de confiança. Quebrar o silêncio sobre saúde mental salva vidas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p>Lembre-se: Você não está sozinho(a)</p>
+                <p class="subtitle">Milhões de pessoas enfrentam desafios relacionados à saúde mental. Buscar ajuda é sinal de força, não de fraqueza.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recursos Disponíveis -->
+    <section id="recursos">
+        <div class="container">
+            <h2>Recursos Disponíveis no SUS</h2>
+            <p>Conheça os serviços gratuitos de saúde mental disponíveis para você</p>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Atenção Básica - UBS</h3>
+                    <p><strong>Porta de entrada do SUS para saúde mental</strong></p>
+                    <p>Primeira escuta, orientação inicial, grupos terapêuticos e encaminhamento para serviços especializados</p>
+                </div>
+                <div class="card">
+                    <h3>CAPS - Centro de Atenção Psicossocial</h3>
+                    <p><strong>Atendimento intensivo em saúde mental</strong></p>
+                    <p>Acompanhamento psiquiátrico, psicoterapia, terapia ocupacional, grupos terapêuticos e oficinas</p>
+                </div>
+                <div class="card">
+                    <h3>NASF - Núcleo de Apoio</h3>
+                    <p><strong>Equipe multidisciplinar de apoio</strong></p>
+                    <p>Psicólogos, terapeutas ocupacionais, assistentes sociais trabalhando junto às equipes de saúde</p>
+                </div>
+                <div class="card">
+                    <h3>Telemedicina SUS</h3>
+                    <p><strong>Consultas online gratuitas</strong></p>
+                    <p>Orientações de saúde mental, triagem e acompanhamento à distância via aplicativos oficiais</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p>✓ Todos os serviços são GRATUITOS</p>
+                <p class="subtitle">Você não precisa de encaminhamento médico para procurar a UBS mais próxima e começar seu atendimento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Linhas de Apoio -->
+    <section class="bg-blue">
+        <div class="container">
+            <h2 style="color: white;">Linhas de Apoio Emergencial</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-number">188</div>
+                    <div class="contact-label">CVV - Centro de Valorização da Vida</div>
+                    <div class="contact-label" style="margin-top: 8px;">24 horas • Gratuito • Anônimo</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-number">190</div>
+                    <div class="contact-label">SAMU</div>
+                    <div class="contact-label" style="margin-top: 8px;">Emergências de saúde mental</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label" style="font-size: 16px; font-weight: 600;">Busque CAPS</div>
+                    <div class="contact-label" style="margin-top: 8px;">Use o "Busca Saúde" do SUS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>#DigitalComEquilíbrio</h3>
+            <p style="margin-bottom: 20px;">Uma campanha de conscientização sobre redes sociais e saúde mental</p>
+            <p style="font-size: 14px;">Em caso de emergência ou crise, ligue: <strong>188 - CVV</strong> | <strong>190 - SAMU</strong></p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollTo(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
